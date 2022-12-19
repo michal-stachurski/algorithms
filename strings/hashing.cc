@@ -1,4 +1,4 @@
-// polynomial rolling hash function
+// Polynomial rolling hash function
 // Used by Rabin-Karp string search algorithm
 #include <string>
 

@@ -1,11 +1,14 @@
-// Slownik slow bazowych
-// niewiem jak to po angielsku chyba suffix array
+// Karp-Miller-Rosenberg algorithm (KMR)
+// inits on string in O(n log^2 n) time
+// answer queries for lexicographic order of substrings in O(1) time
+
+// Same task can be done using rolling hash and binary search
 #include <iostream>
 #include <cmath>
 #include <vector>
 #include <algorithm>
 
-class suffix_array {
+class dictionary {
 private:
     struct pair {
         int l, r, index;
@@ -25,7 +28,7 @@ private:
     int size, log;
 
 public:
-    void init(const std::string& str) { // O(n log^2(n))
+    void init(const std::string& str) {
         size = str.size();
         log = ceil(log2(size));
         for (int i = 0; i < size; i++) {
@@ -38,7 +41,8 @@ public:
                 pair p = pair(h[i-1][j], h[i-1][j+len], j);
                 vec.push_back(p);
             }
-            std::sort(vec.begin(), vec.end()); // This could be linear using bucket sort
+            // This can be linear using bucket sort
+            std::sort(vec.begin(), vec.end());
             int idx = 0;
             h[i][vec[0].index] = idx;
             for (int j = 1; j < vec.size(); j++) {
@@ -47,7 +51,7 @@ public:
             }
         }
     }
-    char comp(int i, int j, int len) { // first index is zero! O(1)
+    char comp(int i, int j, int len) { // first index is zero
         int pow = log2(len);
         int base = 1 << pow;
         if ((h[pow][i] == h[pow][j]) && (h[pow][i+len-base] == h[pow][j+len-base])) {
@@ -57,14 +61,13 @@ public:
     }
 };
 
-suffix_array SA;
+dictionary dict;
 
 int main() {
     std::string s;
     std::cin >> s;
 
-    SA.init(s);
-    // SA.init("abbacabcabcabac");
+    dict.init(s);
 
     int m;
     std::cin >> m;
@@ -72,6 +75,6 @@ int main() {
         int a, b, l;
         std::cin >> a >> b >> l;
         a--, b--;
-        std::cout << SA.comp(a, b, l) << '\n';
+        std::cout << dict.comp(a, b, l) << '\n';
     }
 }

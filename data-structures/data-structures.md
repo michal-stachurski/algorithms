@@ -4,11 +4,11 @@
 
 The basic interface of this data structure consists of three operations:
 
-`init(n)` - initializes n separate sets, each containing one element
+`init(n)` - initializes `n` separate sets, each containing one element
 
-`merge(u, v)` - merges the two specified sets (the set in which the element a is located, and the set in which the element b is located)
+`merge(u, v)` - merges the two specified sets (the set in which the element `u` is located, and the set in which the element `v` is located)
 
-`find(v)` - returns the representative (also called leader) of the set that contains the element v.
+`find(v)` - returns the representative (also called leader) of the set that contains the element `v`.
 
 ### Fenwick Tree
 

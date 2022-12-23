@@ -1,8 +1,6 @@
 // Karp-Miller-Rosenberg algorithm (KMR)
 // inits on string in O(n log^2 n) time
 // answer queries for lexicographic order of substrings in O(1) time
-
-// Same task can be done using rolling hash and binary search
 #include <iostream>
 #include <cmath>
 #include <vector>

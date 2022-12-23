@@ -1,5 +1,5 @@
-// performing same operations as KMR, but using rolling hash
-// and binary search
+// performing same operations as KMR,
+// but using rolling hash and binary search
 // init O(n) query O(log n)
 #include <string>
 #include "hashing.cc"

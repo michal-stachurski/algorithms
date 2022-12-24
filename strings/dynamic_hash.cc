@@ -13,7 +13,7 @@ constexpr long sum(long a, long b) {
 }
 
 // Used only for initialize fenwick_t
-void init_hash(char* str, int n) {
+void init_hash(const char* str, int n) {
     power[0] = 1;
     for (int i = 1; i <= n; i++) {
         power[i] = (power[i-1] * P) % MOD;
@@ -34,7 +34,8 @@ private:
         return x & -x;
     }
 public:
-    void init(int size) {
+    void init(const char* str, int size) {
+        init_hash(str, n);
         n = size;
         for (int i = 1; i <= n; i++) {
             F[i] = static_substr(i - lsb(i) + 1, i);
@@ -77,10 +78,5 @@ int main() {
     for (int i = 1; i <= n; i++) {
         cin >> str[i];
     }
-    init_hash(str, n);
-    tree.init(n);
-
-    
-    // tree.get_hash(l , r) - returns hash on [l,r] substring
-    // tree.update(i, 'a', 'b') - updates i-th character of string from 'a' to 'b'
+    tree.init(str, n);
 }

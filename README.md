@@ -24,3 +24,4 @@
     * [Lowest Common Ancestor](graphs/lca2.cc)
     * [Farach-Colton and Bender algorithm](graphs/lca3.cc)
     * [Segment Tree on Rootet Tree](graphs/subtree.cc)
+    * [Kruskal's algorithm](graphs/kruskal.cc)

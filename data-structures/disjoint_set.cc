@@ -1,11 +1,13 @@
+#include <stddef.h>
+
 class disjoint_set {
 private:
-    int *rep;
+    int* rep;
 
 public:
-    void init(int n) {
+    disjoint_set(size_t n) {
         rep = new int[n+1];
-        for (int v = 1; v <= n; v++) {
+        for (size_t v = 1; v <= n; v++) {
             rep[v] = v;
         }
     }
@@ -13,9 +15,7 @@ public:
         if (rep[v] == v) {
             return v;
         }
-        int result = find(rep[v]);
-        rep[v] = result; // path compression optimization
-        return result;
+        return rep[v] = find(rep[v]);
     }
     void merge(int u, int v) {
         rep[find(u)] = find(v);

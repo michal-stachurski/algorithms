@@ -18,6 +18,7 @@
 * Data Structures
     * [Disjoint Set Union](data-structures/disjoint_set.cc)
     * [Fenwick Tree](data-structures/fenwick_tree.cc)
+    * [Sparse Table in 2D](data-structures/sparse_table_2d.cc)
 
 * Graphs
     * [Binary Lifting](graphs/lca.cc)

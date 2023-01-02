@@ -2,7 +2,7 @@
 
 * Algebra
     * [Euclidean algorithm for gcd](algebra/euclid.cc)
-    * Binary Exponentiation
+    * [Binary Exponentiation](algebra/exp.cc)
 
 * String Processing
     * [String Hashing](strings/hashing.cc)

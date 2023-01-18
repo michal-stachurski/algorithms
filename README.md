@@ -21,8 +21,13 @@
     * [Sparse Table in 2D](data-structures/sparse_table_2d.cc)
 
 * Graphs
-    * [Binary Lifting](graphs/lca.cc)
-    * [Lowest Common Ancestor](graphs/lca2.cc)
-    * [Farach-Colton and Bender algorithm](graphs/lca3.cc)
-    * [Segment Tree on Rooted Tree](graphs/subtree.cc)
-    * [Kruskal's algorithm](graphs/kruskal.cc)
+    * Graph traversal
+        * [Depth First Search](graphs/dfs.cc)
+        * [Breadth First Search](graphs/bfs.cc)
+        * [Dijkstra on sparse graphs](graphs/dijkstra_queue.cc)
+    * Trees
+        * [Binary Lifting](graphs/lca.cc) (jump pointers)
+        * [Lowest Common Ancestor](graphs/lca2.cc)
+        * [Farach-Colton and Bender algorithm](graphs/lca3.cc)
+        * [Segment Tree on Rooted Tree](graphs/subtree.cc)
+        * [Kruskal's algorithm](graphs/kruskal.cc)

@@ -31,3 +31,5 @@
         * [Farach-Colton and Bender algorithm](graphs/lca3.cc)
         * [Segment Tree on Rooted Tree](graphs/subtree.cc)
         * [Kruskal's algorithm](graphs/kruskal.cc)
+    * Matchings
+        * [Kuhn's Algorithm - Maximum Bipartite Matching](graphs/kuhn.cc)

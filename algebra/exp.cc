@@ -1,3 +1,6 @@
+// Computes a^n mod M
+// Time comlexity: O(log(n))
+
 #include <cstdint>
 
 constexpr uint64_t MOD = 1e9 + 7;

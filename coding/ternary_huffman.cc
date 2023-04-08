@@ -30,7 +30,8 @@ const std::pair<char, double> letters[] {
     {'X', 0.2902},
     {'Z', 0.2722},
     {'J', 0.1965},
-    {'Q', 0.1961}
+    {'Q', 0.1961},
+    {' ', 0.0000}
 };
 
 double freq[256];
@@ -39,11 +40,12 @@ double sum, avg;
 struct tree {
     struct node {
         node* left;
+        node* middle;
         node* right;
         char c;
 
         node(char letter = 0) {
-            left = right = nullptr;
+            left = middle = right = nullptr;
             c = letter;
         }
     };
@@ -55,12 +57,20 @@ struct tree {
         root = new node(letter);
         weight = frequency;
     }
+    tree(const tree& s, const tree& t, const tree& u) {
+        weight = s.weight + t.weight + u.weight;
+
+        root = new node();
+        root->left = s.root;
+        root->middle = t.root;
+        root->right = u.root;
+    }
     tree(const tree& s, const tree& t) {
         weight = s.weight + t.weight;
 
         root = new node();
         root->left = s.root;
-        root->right = t.root;
+        root->middle = t.root;
     }
 
     void dfs(node* v) const {
@@ -76,7 +86,12 @@ struct tree {
         code.push_back('0');
         dfs(v->left);
         code.pop_back();
+
         code.push_back('1');
+        dfs(v->middle);
+        code.pop_back();
+
+        code.push_back('2');
         dfs(v->right);
         code.pop_back();
     }
@@ -96,6 +111,16 @@ int main() {
         freq[letter.first] = letter.second / 100.0d;
     }
 
+    while (forest.size() > 2) {
+        tree s = forest.top(); forest.pop();
+        tree t = forest.top(); forest.pop();
+        tree u = forest.top(); forest.pop();
+
+        forest.emplace(s, t, u);
+    }
+
+    // printf("size: %lu\n", forest.size());
+
     while (forest.size() > 1) {
         tree s = forest.top(); forest.pop();
         tree t = forest.top(); forest.pop();
@@ -105,6 +130,6 @@ int main() {
 
     forest.top().print();
 
-    printf("%0.3lf\n", sum / 26);
+    printf("%0.3lf\n", sum / 27.0);
     printf("%0.3lf\n", avg);
 }

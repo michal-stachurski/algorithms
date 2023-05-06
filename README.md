@@ -3,6 +3,7 @@
 * Algebra
     * [Euclidean algorithm for gcd](algebra/euclid.cc)
     * [Binary Exponentiation](algebra/exp.cc)
+    * [Divide and Conquer - merge sort](algebra/merge_sort.cc)
 
 * String Processing
     * [String Hashing](strings/hashing.cc)
